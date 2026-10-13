@@ -36,3 +36,7 @@ set(SPB_VERSION "1.1" CACHE STRING "SpbCx version (km/spb/<ver> in the WDK)")
 add_library(spb_headers INTERFACE)
 target_include_directories(spb_headers SYSTEM INTERFACE
     "${WDK_ROOT}/Include/${WDK_INCLUDE_VERSION}/km/spb/${SPB_VERSION}")
+
+add_library(WDK::spbcxstubs INTERFACE IMPORTED GLOBAL)
+set_target_properties(WDK::spbcxstubs PROPERTIES
+    INTERFACE_LINK_LIBRARIES "${WDK_LIBRARY_DIR}/spb/${SPB_VERSION}/spbcxstubs.lib")

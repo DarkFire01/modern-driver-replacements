@@ -8,3 +8,6 @@
 
 # Simple Peripheral Bus class extension
 (`spbcx.sys`)
+
+# Intel LPSS I2C controller
+(`ialpss2i_i2c.sys`)
