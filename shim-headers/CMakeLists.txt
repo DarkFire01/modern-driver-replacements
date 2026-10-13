@@ -29,3 +29,10 @@ target_include_directories(ucx_headers SYSTEM INTERFACE
 add_library(WDK::ucxstub INTERFACE IMPORTED GLOBAL)
 set_target_properties(WDK::ucxstub PROPERTIES
     INTERFACE_LINK_LIBRARIES "${WDK_LIBRARY_DIR}/ucx/${UCX_VERSION}/ucxstub.lib")
+
+# SPB 1.1, the version spbcx serves and its clients are written against.
+set(SPB_VERSION "1.1" CACHE STRING "SpbCx version (km/spb/<ver> in the WDK)")
+
+add_library(spb_headers INTERFACE)
+target_include_directories(spb_headers SYSTEM INTERFACE
+    "${WDK_ROOT}/Include/${WDK_INCLUDE_VERSION}/km/spb/${SPB_VERSION}")

@@ -6,3 +6,5 @@
 # NVME
 (`stornvme.sys`)
 
+# Simple Peripheral Bus class extension
+(`spbcx.sys`)
