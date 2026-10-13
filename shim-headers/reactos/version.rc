@@ -1,0 +1,52 @@
+/*
+ * PROJECT:     modern-driver-replacements
+ * LICENSE:     MIT (https://spdx.org/licenses/MIT)
+ * PURPOSE:     Stand-in for ReactOS's <reactos/version.rc>
+ *
+ * Driver .rc files define REACTOS_STR_FILE_DESCRIPTION, _INTERNAL_NAME and
+ * _ORIGINAL_FILENAME and then include this; MDR_VERSION_* come from CMake.
+ */
+
+#include <winver.h>
+
+#ifndef MDR_VERSION_MAJOR
+#define MDR_VERSION_MAJOR 0
+#define MDR_VERSION_MINOR 0
+#define MDR_VERSION_PATCH 0
+#endif
+#ifndef MDR_VERSION_STR
+#define MDR_VERSION_STR "0.0.0"
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     MDR_VERSION_MAJOR,MDR_VERSION_MINOR,MDR_VERSION_PATCH,0
+PRODUCTVERSION  MDR_VERSION_MAJOR,MDR_VERSION_MINOR,MDR_VERSION_PATCH,0
+FILEFLAGSMASK   VS_FFI_FILEFLAGSMASK
+#if DBG
+FILEFLAGS       VS_FF_DEBUG
+#else
+FILEFLAGS       0
+#endif
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_DRV
+FILESUBTYPE     VFT2_DRV_SYSTEM
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "modern-driver-replacements"
+            VALUE "FileDescription",  REACTOS_STR_FILE_DESCRIPTION
+            VALUE "FileVersion",      MDR_VERSION_STR
+            VALUE "InternalName",     REACTOS_STR_INTERNAL_NAME
+            VALUE "LegalCopyright",   "MIT License"
+            VALUE "OriginalFilename", REACTOS_STR_ORIGINAL_FILENAME
+            VALUE "ProductName",      "modern-driver-replacements"
+            VALUE "ProductVersion",   MDR_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
