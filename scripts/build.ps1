@@ -12,7 +12,7 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet('win10','win10_ni','win11')]
+    [ValidateSet('win8','winblue','win10','win10_ni','win11')]
     [string] $Target,
 
     [ValidateSet('x64','x86','arm64')]
@@ -75,7 +75,7 @@ function Select-VisualStudio {
             default  { -1 }
         }
         if ($major -lt 0) {
-            throw "Unrecognised -VsVersion '$Preference'. Use 2019, latest, or an installation path."
+            throw "Unrecognized -VsVersion '$Preference'. Use 2019, latest, or an installation path."
         }
 
         $chosen = $installs |

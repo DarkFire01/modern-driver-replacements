@@ -17,7 +17,7 @@ target_compile_definitions(mdr_shim INTERFACE
     MDR_VERSION_STR="${PROJECT_VERSION}")
 target_compile_options(mdr_shim INTERFACE
     "$<$<COMPILE_LANGUAGE:C,CXX>:/FI${CMAKE_CURRENT_SOURCE_DIR}/mdr_compat.h>")
-target_link_libraries(mdr_shim INTERFACE nt_kmdf_settings)
+target_link_libraries(mdr_shim INTERFACE nt_kernel_settings)
 
 # UCX 1.6, the version usbxhci and usbhub3 are written against.
 set(UCX_VERSION "1.6" CACHE STRING "UCX version (km/ucx/<ver> in the WDK)")

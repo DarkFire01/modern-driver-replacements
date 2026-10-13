@@ -62,7 +62,7 @@ function(nt_kernel_init)
         /wd4127     # conditional expression is constant
         /wd4201     # nameless struct/union (used throughout the WDK headers)
         /wd4214     # bit field type other than int
-        # ExAllocatePoolWithTag is deprecated in favour of ExAllocatePool2,
+        # ExAllocatePoolWithTag is deprecated in favor of ExAllocatePool2,
         # which only exists from Windows 10 2004 on.
         /wd4996
         $<$<BOOL:${NT_WARNINGS_AS_ERRORS}>:/WX>)

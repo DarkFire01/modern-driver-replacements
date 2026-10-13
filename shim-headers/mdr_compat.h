@@ -14,3 +14,6 @@
 /* ReactOS's usbioctl.h exposes the hub port status query outside the internal set */
 #define IOCTL_USB_GET_PORT_STATUS \
     CTL_CODE(FILE_DEVICE_USB, USB_GET_PORT_STATUS, METHOD_BUFFERED, FILE_ANY_ACCESS)
+
+/* srbhelper.h asserts on it at every NTDDI, storport.h only defines it from Win11 GE */
+#define STOR_ADDRESS_TYPE_NVME 0x2

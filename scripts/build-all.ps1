@@ -19,7 +19,7 @@ param(
 
     [switch] $Clean,
 
-    [string[]] $Targets = @('win10','win10_ni','win11')
+    [string[]] $Targets = @('win8','winblue','win10','win10_ni','win11')
 )
 
 $ErrorActionPreference = 'Continue'

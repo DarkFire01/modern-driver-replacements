@@ -29,7 +29,7 @@ set_property(CACHE NT_TARGET PROPERTY STRINGS ${_nt_all_targets})
 
 option(NT_WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 
-set(WDK_REQUESTED_LIBRARIES usbd usbdex)
+set(WDK_REQUESTED_LIBRARIES usbd usbdex storport)
 find_package(WDK REQUIRED)
 nt_target_info(${NT_TARGET})
 nt_kernel_init()
@@ -54,16 +54,14 @@ if(WDK_ARCH STREQUAL "x86" AND NT_TARGET_ID STREQUAL "win11")
         "link but has no OS to load it.")
 endif()
 
-# The WDK's UCX headers only exist for NTDDI_WINTHRESHOLD and up, and its
-# oldest KMDF (1.15) first shipped with Windows 10, so nothing older can host
-# these drivers.
-if(NT_TARGET_WIN32_WINNT VERSION_LESS 0x0A00)
+# stornvme is written against the Windows 8 storport interface.
+math(EXPR NT_TARGET_WINNT_VALUE "${NT_TARGET_WIN32_WINNT}")
+if(NT_TARGET_WINNT_VALUE LESS 0x0602)
     message(FATAL_ERROR
-        "${NT_TARGET_DISPLAY_NAME} is not a supported target: UCX and KMDF "
-        "${KMDF_VERSION} need Windows 10 or later. Use win10, win10_ni or win11.")
+        "${NT_TARGET_DISPLAY_NAME} is not a supported target, Windows 8 is the oldest.")
 endif()
 
-# Keep each target's artefacts apart, so several NT_TARGETs can share a tree.
+# Keep each target's artifacts apart, so several NT_TARGETs can share a tree.
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
