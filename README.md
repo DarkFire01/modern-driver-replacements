@@ -17,3 +17,6 @@
 
 # Intel LPSS GPIO
 (`ialpss2i_gpio.sys`)
+
+# HID
+(`mshidkmdf.sys`)

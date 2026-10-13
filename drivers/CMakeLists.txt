@@ -1,3 +1,4 @@
+add_subdirectory(mshidkmdf)
 add_subdirectory(stornvme)
 
 # The WDK's UCX headers only exist from NTDDI_WINTHRESHOLD on, and its oldest

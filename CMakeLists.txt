@@ -29,7 +29,7 @@ set_property(CACHE NT_TARGET PROPERTY STRINGS ${_nt_all_targets})
 
 option(NT_WARNINGS_AS_ERRORS "Treat compiler warnings as errors" OFF)
 
-set(WDK_REQUESTED_LIBRARIES usbd usbdex storport msgpioclxstub)
+set(WDK_REQUESTED_LIBRARIES usbd usbdex storport msgpioclxstub hidclass)
 find_package(WDK REQUIRED)
 nt_target_info(${NT_TARGET})
 nt_kernel_init()
