@@ -14,3 +14,6 @@
 
 # GPIO class extension
 (`gpioclx.sys`)
+
+# Intel LPSS GPIO
+(`ialpss2i_gpio.sys`)
