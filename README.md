@@ -19,4 +19,4 @@
 (`ialpss2i_gpio.sys`)
 
 # HID
-(`mshidkmdf.sys`)
+(`mshidkmdf.sys` and `hidi2c.sys`)
