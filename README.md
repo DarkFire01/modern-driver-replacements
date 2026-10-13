@@ -11,3 +11,6 @@
 
 # Intel LPSS I2C controller
 (`ialpss2i_i2c.sys`)
+
+# GPIO class extension
+(`gpioclx.sys`)
